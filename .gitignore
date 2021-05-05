@@ -1,4 +1,4 @@
 *~
-.swp
-.swo
-
+*.swp
+*.swo
+p17data/ConfigSecurity.py
