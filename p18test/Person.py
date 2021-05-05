@@ -8,3 +8,5 @@ versions['0.0.0.1.1']['list']['basic'] = {
         'then':['_result == p26struct.Person.People([p26struct.Person.Person(\'Joao\',1),p26struct.Person.Person(\'Jose\',2)])']
         }
 
+versions['0.0.0.1.2'] = copy.deepcopy(versions['0.0.0.1.1'])
+

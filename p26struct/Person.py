@@ -16,8 +16,15 @@ class People:
                 return False
         return True
 
-    def list():
-        query = p17data.Person.versions[p17data.Config.version]['list']['query']
+    @property
+    def children(self):
+        return self.__children
+
+    def list(tag=None):
+        if tag is None:
+            query = p17data.Person.versions[p17data.Config.version]['list']['query']
+        else:
+            query = p17data.Person.versions[p17data.Config.version]['list']['queryTag'].format(tag=tag)
         results = tools.p23control.Database.query(query)
         personList = []
         for result in results:
@@ -37,4 +44,8 @@ class Person:
             flag = flag and self.__id == other.__id
         flag = flag and self.__name == other.__name
         return flag
+
+    @property
+    def name(self):
+        return self.__name
 

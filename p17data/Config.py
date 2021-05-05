@@ -1,6 +1,6 @@
 import p17data.ConfigSecurity
 name = 'Knowledge'
-version = '0.0.0.1.1'
+version = '0.0.0.1.2'
 database = {}
 database['default'] = {}
 database['default']['dbms'] = p17data.ConfigSecurity.database['default']['dbms']
