@@ -25,7 +25,6 @@ class People:
             query = p17data.Person.versions[p17data.Config.version]['list']['query']
             results = tools.p23control.Database.query(query)
         else:
-            tagStr = str.join('\',\'',tag)
             query = p17data.Person.versions[p17data.Config.version]['list']['queryTag']
             results = tools.p23control.Database.query(query,[tuple(tag),len(tag)])
         personList = []
