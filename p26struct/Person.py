@@ -23,10 +23,11 @@ class People:
     def list(tag=[]):
         if len(tag) == 0:
             query = p17data.Person.versions[p17data.Config.version]['list']['query']
+            results = tools.p23control.Database.query(query)
         else:
             tagStr = str.join('\',\'',tag)
-            query = p17data.Person.versions[p17data.Config.version]['list']['queryTag'].format(tag=tagStr,tagCount=len(tag))
-        results = tools.p23control.Database.query(query)
+            query = p17data.Person.versions[p17data.Config.version]['list']['queryTag']
+            results = tools.p23control.Database.query(query,{'tag':tagStr,'tagCount':len(tag)})
         personList = []
         for result in results:
             personList.append(Person(result[1],result[0]))
