@@ -20,11 +20,12 @@ class People:
     def children(self):
         return self.__children
 
-    def list(tag=None):
-        if tag is None:
+    def list(tag=[]):
+        if len(tag) == 0:
             query = p17data.Person.versions[p17data.Config.version]['list']['query']
         else:
-            query = p17data.Person.versions[p17data.Config.version]['list']['queryTag'].format(tag=tag)
+            tagStr = str.join('\',\'',tag)
+            query = p17data.Person.versions[p17data.Config.version]['list']['queryTag'].format(tag=tagStr,tagCount=len(tag))
         results = tools.p23control.Database.query(query)
         personList = []
         for result in results:

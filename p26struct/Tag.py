@@ -20,11 +20,12 @@ class Tags:
     def children(self):
         return self.__children
 
-    def list(tag=None):
-        if tag is None:
+    def list(tag=[]):
+        if len(tag) == 0:
             query = p17data.Tag.versions[p17data.Config.version]['list']['query']
         else:
-            query = p17data.Tag.versions[p17data.Config.version]['list']['queryTag'].format(tag=tag)
+            tagStr = str.join('\',\'',tag)
+            query = p17data.Tag.versions[p17data.Config.version]['list']['queryTag'].format(tag=tagStr)
         results = tools.p23control.Database.query(query)
         tagList = []
         for result in results:

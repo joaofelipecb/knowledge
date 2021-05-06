@@ -11,6 +11,6 @@ natural join tags_x_people as txp
 natural join tags as t
 where t.tag_name in (\'{tag}\')
 group by p.person_id
-having count(t.tag_id) = 1
+having count(t.tag_id) = {tagCount}
 order by person_id'''
 

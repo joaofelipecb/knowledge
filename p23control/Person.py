@@ -1,4 +1,4 @@
-def list(tag=None):
+def list(tag=[]):
     import p26struct.Person
     import p26struct.Tag
     people = p26struct.Person.People.list(tag)
@@ -18,8 +18,12 @@ def list(tag=None):
     buffer = buffer + '</li>\n'
     buffer = buffer + '<li>Tags:\n'
     buffer = buffer + '<ul>\n'
-    for tag in tags.children:
-        buffer = buffer + '<li><a href="person/_tag/'+tag.name+'">'+tag.name+'</a></li>\n'
+    for tagChild in tags.children:
+        if len(tag) == 0:
+            buffer = buffer + '<li><a href="person/_tag/'+tagChild.name+'">'+tagChild.name+'</a></li>\n'
+        else:
+            repeat = len(tag)+1
+            buffer = buffer + '<li><a href="'+('../'*repeat)+'person/_tag/'+str.join('/',tag)+'/'+tagChild.name+'">'+tagChild.name+'</a></li>\n'
     buffer = buffer + '</ul>\n'
     buffer = buffer + '</ul>\n'
     buffer = buffer + '</body>\n'

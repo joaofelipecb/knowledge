@@ -9,5 +9,7 @@ versions['0.0.0.1.1']['routes']['/person'] = 'p23control.Person.list()'
 versions['0.0.0.1.1']['route'] = {}
 versions['0.0.0.1.1']['route']['routes'] = versions['0.0.0.1.1']['routes']
 versions['0.0.0.1.2'] = copy.deepcopy(versions['0.0.0.1.1'])
-versions['0.0.0.1.2']['routes']['/person/_tag/{tag}'] = 'p23control.Person.list(tag)'
+versions['0.0.0.1.2']['routes']['/person/_tag/{tag}'] = 'p23control.Person.list([tag])'
+versions['0.0.0.1.2']['routes']['/person/_tag/{tag1}/{tag2}'] = 'p23control.Person.list([tag1,tag2])'
+versions['0.0.0.1.2']['routes']['/person/_tag/{tag1}/{tag2}/{tag3}'] = 'p23control.Person.list([tag1,tag2,tag3])'
 
