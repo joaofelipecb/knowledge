@@ -26,8 +26,8 @@ class Tags:
             results = tools.p23control.Database.query(query)
         else:
             tagStr = str.join('\',\'',tag)
-            query = p17data.Tag.versions[p17data.Config.version]['list']['queryTag'])
-            results = tools.p23control.Database.query(query,{'tag':tagStr})
+            query = p17data.Tag.versions[p17data.Config.version]['list']['queryTag']
+            results = tools.p23control.Database.query(query,[tagStr,tagStr])
         tagList = []
         for result in results:
             tagList.append(Tag(result[1],result[0]))

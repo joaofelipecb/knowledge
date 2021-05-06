@@ -11,8 +11,8 @@ from tags as t1
 left join tags_x_people as txp1 on t1.tag_id = txp1.tag_id
 left join tags_x_people as txp2 on txp1.person_id = txp2.person_id
 left join tags as t2 on txp2.tag_id = t2.tag_id
-where t1.tag_name in (\'{tag}\')
-and t2.tag_name not in (\'{tag}\')
+where t1.tag_name in (%s)
+and t2.tag_name not in (%s)
 order by t2.tag_id
 '''
 

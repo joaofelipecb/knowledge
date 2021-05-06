@@ -9,8 +9,8 @@ versions['0.0.0.1.2']['list']['queryTag'] = '''select p.person_id, p.person_name
 from people as p
 natural join tags_x_people as txp
 natural join tags as t
-where t.tag_name in (\'{tag}\')
+where t.tag_name in (%s)
 group by p.person_id
-having count(t.tag_id) = {tagCount}
+having count(t.tag_id) = %s
 order by person_id'''
 
