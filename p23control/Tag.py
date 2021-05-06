@@ -1,5 +1,5 @@
 import p26struct.Tag
 
-def list():
-    return p26struct.Tag.Tags.list()
+def list(tag=None):
+    return p26struct.Tag.Tags.list(tag)
 
