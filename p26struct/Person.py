@@ -27,7 +27,7 @@ class People:
         else:
             tagStr = str.join('\',\'',tag)
             query = p17data.Person.versions[p17data.Config.version]['list']['queryTag']
-            results = tools.p23control.Database.query(query,[tagStr,len(tag)])
+            results = tools.p23control.Database.query(query,[tuple(tag),len(tag)])
         personList = []
         for result in results:
             personList.append(Person(result[1],result[0]))
